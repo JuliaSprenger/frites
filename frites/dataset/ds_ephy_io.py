@@ -24,8 +24,8 @@ def ds_ephy_io(x, roi=None, y=None, z=None, times=None, sub_roi=None,
                verbose=None):
     """Manage inputs conversion for the DatasetEphy.
 
-    This function is used to convert NumPy / MNE / Xarray inputs into a
-    standardize NumPy version.
+    This function is used to convert NumPy / MNE / Xarray / Neo inputs into a
+    standardized NumPy version.
 
     Parameters
     ----------
@@ -50,15 +50,15 @@ def ds_ephy_io(x, roi=None, y=None, z=None, times=None, sub_roi=None,
     Returns
     -------
     x : list
-        List of data array of shape (n_epochs, n_channels, n_times)
+        List of data arrays each of shape (n_epochs, n_channels, n_times)
     y, z : list
-        List of arrays of shape (n_epochs,)
+        List of arrays each of shape (n_epochs,)
     roi : list
-        List of arrays of shape (n_channels,)
+        List of arrays each of shape (n_channels,)
     times : array_like
         Time vector of shape (n_times,)
     sub_roi : array_like
-        List of arrays of shape (n_channels,)
+        List of arrays each of shape (n_channels,)
     """
     set_log_level(verbose)
     # -------------------------------------------------------------------------
@@ -153,7 +153,6 @@ def ds_ephy_io(x, roi=None, y=None, z=None, times=None, sub_roi=None,
             sub_roi_int += [sub_int]
     else:
         sub_roi_int = None
-
 
     return x, y, z, roi, times, sub_roi_int
 
